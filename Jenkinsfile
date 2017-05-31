@@ -9,6 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
+                sh 'mkdir reports'
                 sh 'cucumber -f html -o reports/results.html'
             }
         }
