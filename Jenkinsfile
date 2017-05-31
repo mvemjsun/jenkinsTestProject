@@ -9,7 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'cucumber'
+                sh 'cucumber -f html -o reports/results.html'
             }
         }
         stage('Deploy') {
@@ -17,5 +17,11 @@ pipeline {
                 echo 'Deploying'
             }
         }
+    }
+
+    post {
+            always {
+                archive 'reports/results.html'
+            }
     }
 }
