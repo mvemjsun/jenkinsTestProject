@@ -1,7 +1,7 @@
 Feature: Factorial of a number
   As a Mathematician
   I want to generate factorial of a number
-  So that I can use it
+  So that I can use it usefully
 
   Scenario Outline: Calculate factorial of an invalid number
     Given I calculate the factorial of an <invalid_number>
@@ -38,4 +38,3 @@ Feature: Factorial of a number
     | 3      | 6         |
     | 4      | 24        |
     | 10     | 3628800   |
-
