@@ -11,7 +11,7 @@ Feature: Factorial of a number
     | 0              |
     | -3             |
     | dd             |
-
+    | ee             |
   Scenario: Calculate factorial of 1
     Given I calculate a factorial of 1
     Then The factorial should be calculated as 1
