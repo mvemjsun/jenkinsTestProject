@@ -9,7 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'mkdir reports'
+                sh 'if [ ! -d "reports" ]; then mkdir reports fi'
                 sh 'cucumber -f html -o reports/results.html'
             }
         }
