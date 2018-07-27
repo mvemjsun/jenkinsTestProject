@@ -1,5 +1,5 @@
-timestamps {
-    pipeline {
+pipeline {
+    timestamps {
         agent any
         stages {
             stage('Build') {
