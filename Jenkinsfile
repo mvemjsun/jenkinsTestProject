@@ -1,7 +1,7 @@
 pipeline {
-    timestamps {
-        agent any
-        stages {
+    agent any
+    stages {
+        timestamps {
             stage('Build') {
                 steps {
                     echo "Building in workspace ${WORKSPACE}"
