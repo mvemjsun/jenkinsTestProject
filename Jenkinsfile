@@ -7,6 +7,7 @@ pipeline {
                     echo "Building in workspace ${WORKSPACE}"
                 }
             }
+        }
             stage('Test') {
                 steps {
                     echo 'Testing'
@@ -26,5 +27,5 @@ pipeline {
                     archive 'reports/results.html'
                 }
         }
-    }
+
 }
