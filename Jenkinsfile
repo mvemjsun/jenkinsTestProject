@@ -9,7 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh './scripts/create_report_dir.sh'
+                sh "${WORKSPACE}/scripts/create_report_dir.sh"
                 sh 'cucumber -f html -o reports/results.html'
             }
         }
