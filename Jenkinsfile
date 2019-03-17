@@ -4,7 +4,6 @@ pipeline {
             stage('Build') {
                 steps {
                     echo "Building in workspace ${WORKSPACE}"
-                    git_Stuff()
                 }
             }
 
