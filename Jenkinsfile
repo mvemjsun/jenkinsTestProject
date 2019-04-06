@@ -15,7 +15,9 @@ pipeline {
             }
 
             post {
-                cucumber fileIncludePattern: '*.json', jsonReportDirectory: 'reports/'
+                always {
+                    cucumber fileIncludePattern: '*.json', jsonReportDirectory: 'reports/'
+                }
             }
 
         }
