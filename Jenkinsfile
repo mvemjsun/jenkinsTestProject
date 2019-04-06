@@ -11,8 +11,13 @@ pipeline {
             steps {
                 echo 'Testing'
                 sh "${WORKSPACE}/scripts/create_report_dir.sh"
-                sh 'cucumber -f html -o reports/results.html'
+                sh 'cucumber -f json -o reports/results.json'
             }
+
+            post {
+                cucumber fileIncludePattern: '*.json', jsonReportDirectory: 'reports/'
+            }
+
         }
         stage('Deploy') {
             steps {
