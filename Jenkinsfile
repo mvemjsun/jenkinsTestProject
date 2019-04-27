@@ -10,26 +10,25 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        parallel {
+            stage('Lint') {
+                echo 'Parallel: Linting'
+            }
 
-            parallel {
+            stage('Test') {
+
                 steps {
                     echo 'Parallel: Testing'
                     sh "${WORKSPACE}/scripts/create_report_dir.sh"
                     sh 'cucumber -f json -o reports/results.json'
                 }
 
-                steps {
-                    echo 'Parallel: Another parallel step'
+                post {
+                    always {
+                        cucumber fileIncludePattern: '*.json', jsonReportDirectory: 'reports/'
+                    }
                 }
             }
-
-            post {
-                always {
-                    cucumber fileIncludePattern: '*.json', jsonReportDirectory: 'reports/'
-                }
-            }
-
         }
 
         stage('Process parameter') {
