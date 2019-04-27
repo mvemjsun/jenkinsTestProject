@@ -27,8 +27,8 @@ pipeline {
 
         stage('Process parameter') {
             steps {
-                echo "Processing parameter ${params.BRANCH_NAME_SELECTED}"
-                process_parameter("${params.BRANCH_NAME_SELECTED}")
+                echo "Processing parameter ${params.TEST_PARAMETER}"
+                process_parameter("${params.TEST_PARAMETER}")
             }
         }
 
