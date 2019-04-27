@@ -27,7 +27,7 @@ pipeline {
 
         stage('Process parameter') {
             steps {
-                process_parameter(${BRANCH_NAME_SELECTED})
+                process_parameter("${BRANCH_NAME_SELECTED}")
             }
         }
 
