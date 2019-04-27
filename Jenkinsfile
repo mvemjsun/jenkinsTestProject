@@ -1,5 +1,5 @@
 
-properties([parameters([string(defaultValue: '2', description: 'Delay in seconds', name: 'TEST_PARAMETER', trim: false)])])
+properties([parameters([string(defaultValue: '2', description: 'Delay in seconds', name: 'TEST_PARAMETER', trim: true)])])
 
 pipeline {
     agent any
@@ -27,6 +27,7 @@ pipeline {
 
         stage('Process parameter') {
             steps {
+                echo "Processing parameter ${params.BRANCH_NAME_SELECTED}"
                 process_parameter("${params.BRANCH_NAME_SELECTED}")
             }
         }
@@ -53,6 +54,7 @@ def git_Stuff() {
 
 def process_parameter(parameter) {
     println "process_parameter ${parameter}"
-    sleep(parameter)
+    int delay = Integer.parseInt(parameter)
+    sleep(parameter.toInteger())
     println "process_parameter done ..."
 }
