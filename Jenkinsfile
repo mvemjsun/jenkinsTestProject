@@ -11,10 +11,17 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                echo 'Testing'
-                sh "${WORKSPACE}/scripts/create_report_dir.sh"
-                sh 'cucumber -f json -o reports/results.json'
+
+            parallel {
+                steps {
+                    echo 'Parallel: Testing'
+                    sh "${WORKSPACE}/scripts/create_report_dir.sh"
+                    sh 'cucumber -f json -o reports/results.json'
+                }
+
+                steps {
+                    echo 'Parallel: Another parallel step'
+                }
             }
 
             post {
