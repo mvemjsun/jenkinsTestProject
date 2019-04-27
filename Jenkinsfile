@@ -34,6 +34,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
+                milestone("deploy")
                 echo 'Deploying'
             }
         }
